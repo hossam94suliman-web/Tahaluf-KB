@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Tahaluf Knowledge Base</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #1a302e;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* ── Background wrapper ── */
+  .bg-wrapper {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+  }
+
+  /*
+    The bg image sits at its current rotation, stored in a CSS variable.
+    On hover of the events-circle we add 180deg via JS by toggling a class.
+    We use CSS transition for a smooth half-spin.
+  */
+  .bg-img {
+    width: 80%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.85;
+    transform-origin: center center;
+    transform: rotate(var(--bg-rot, 0deg));
+    transition: transform 1.4s cubic-bezier(0.45, 0.05, 0.55, 0.95);
+    will-change: transform;
+  }
+
+  
+  /* ── Centre Events area ── */
+  .events-center {
+    position: relative;
+    z-index: 10;
+  }
+
+  .events-circle {
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    background: #0d2236;
+    border: 4px solid #cedc28;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: box-shadow 0.3s;
+    box-shadow: 0 0 30px rgba(206,220,40,0.18);
+    position: relative;
+    z-index: 2;
+  }
+  .events-circle:hover {
+    box-shadow: 0 0 55px rgba(206,220,40,0.45);
+  }
+
+</style>
+</head>
+<body>
+
+<!-- ── Rotating background ── -->
+<div class="bg-wrapper">
+  <img id="bgImg" class="bg-img" src="people-network-1920.svg" alt="" />
+</div>
+
+<!-- ── Central Events area ── -->
+<div class="events-center">
+  <div class="events-ring">
+
+    <div class="events-circle" id="eventsCircle">
+<a class="ev-but" href="Events.html"> Events </a>   
+    </div>
+  </div>
+</div>
+
+<script>
+  // ── Background half-spin on hover ──────────────────────────────────────
+  const bgImg   = document.getElementById('bgImg');
+  const circle  = document.getElementById('eventsCircle');
+
+  let currentDeg = 0;   // tracks total accumulated rotation
+  let isHovered  = false;
+
+  circle.addEventListener('mouseenter', () => {
+    if (isHovered) return;
+    isHovered = true;
+    currentDeg += 180;
+    bgImg.style.transform = `rotate(${currentDeg}deg)`;
+  });
+
+  circle.addEventListener('mouseleave', () => {
+    isHovered = false;
+  });
+
+</script>
+
+</body>
+</html>
