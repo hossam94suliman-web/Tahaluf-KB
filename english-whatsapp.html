@@ -1,0 +1,1099 @@
+<!Doctype html>
+<html lang="en">
+
+<head>
+    <title> Whatsapp</title>
+     <link rel="icon" href="knowledge.png" type="image/png" sizes="512x512" />   
+    <script src="auth.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<header>
+Helpful English & Arabic Responses
+<link rel="stylesheet" href="Tahaluf KB CSS.css">
+<li> <a href="KB HTML.html"> Home</a>  <a href="Events.html"> Events </a> </li>
+</header>
+</head>
+    <body>
+<style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            justify-content: center;
+        }
+
+        body {
+            font-family:'Inter', 'Segoe UI', Arial, sans-serif;
+            background: #1a302e;
+            padding: 0px;
+        }
+
+        .container {
+            max-width: 1800px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 10px;
+            padding: 20px 10px;
+            background: linear-gradient(135deg, #11a7d9  0%, #0a2442 100%);
+            border-radius: 20px;
+            color: white;
+        }
+
+        .header h1 {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            opacity: 0.8;
+            font-size: 1rem;
+        }
+
+        /* Two Column Layout */
+        .two-columns {
+            display: flex;
+            gap: 45px;
+            margin: 0 15px;
+            flex-wrap: wrap;
+        }
+
+        .column {
+            flex: 1;
+            min-width: 400px;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .column-header {
+            padding: 5px;
+            text-align: center;
+            border-radius: 15px 15px 0 0;
+            margin-bottom: 20px;
+        }
+
+        .column-header.english {
+            background:  hsla(195, 85%, 46%, 0.486);
+            color: white;
+        }
+
+        .column-header.arabic {
+            background: hsla(65, 72%, 51%, 0.486);
+            color: white;
+        }
+
+        .column-header h2 {
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .column-header .count {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin-top: 8px;
+        }
+
+        /* Category Sections inside columns */
+        .category {
+            background: #000;
+            border-radius: 15px;
+            margin-bottom: 13px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+        }
+
+        .category-header {
+            padding: 10px 15px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s;
+            border-left: 4px solid hsla(195, 85%, 46%, 0.486);
+            background-color: #000;
+        }
+
+        .category.arabic-cat .category-header {
+            border-right: 4px solid hsla(65, 72%, 51%, 0.486);
+            border-left: none;
+        }
+
+        .category-header:hover {
+            background: #131313;
+        }
+
+        .category-header h3 {
+            font-size: 1.1rem;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .category-toggle {
+            font-size: 1rem;
+            transition: transform 0.3s;
+            color: #7f8c8d;
+        }
+
+        .category.collapsed .category-toggle {
+            transform: rotate(-90deg);
+        }
+
+        .category.collapsed .category-content {
+            display: none;
+        }
+
+        .category-content {
+            padding: 15px;
+        }
+
+        /* Template Grid inside category */
+        .template-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        /* Template Card */
+        .template-card {
+            background: #6b6b6b3b;
+            border-radius: 10px;
+            padding: 2px;
+            transition: all 0.2s;
+        }
+
+        .template-card:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .template-card.arabic-card:hover {
+            border-color: #2ecc71;
+        }
+
+        .template-card.arabic-card{
+            background: #6b6b6b3b;
+
+        }
+
+        .template-text {
+            display: inline-block;
+            font-size: 1.2rem;
+            justify-content: center;
+            line-height: 1.0;
+            font-weight:500 ;
+            color: white; 
+            font-family:Arial, Helvetica, sans-serif;
+            margin-bottom: 3px;
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+            max-width: 100%;
+            white-space: pre-wrap;
+            background: rgba(0, 0, 0, 0);
+            padding: 5px;
+            border-radius: 8px;
+            border-left: 3px solid hsla(195, 85%, 46%, 0.486);
+        }
+
+        .template-text.arabic-text {
+            justify-content: center;            
+            direction: rtl;
+            text-align: right;
+            border-left: none;
+            border-right: 3px solid hsla(65, 72%, 51%, 0.486);
+            font-family: 'Segoe UI', 'Arial', sans-serif;
+        }
+
+        /* Copy Button */
+        .copy-btn {
+            background: hsla(195, 85%, 46%, 0.486);
+            border: none;
+            color: white;
+            padding: 5px 15px;
+            margin-left: 0%;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.75rem;
+            font-weight: 500;
+            display: inline-block;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.2s;
+        }
+
+        .copy-btn:hover {
+            background: hsla(195, 85%, 46%, 0.486);
+            transform: scale(1.02);
+        }
+
+        .copy-btn.arabic-btn {
+            background: hsla(65, 72%, 51%, 0.486);
+        }
+
+        .copy-btn.arabic-btn:hover {
+            background: hsla(65, 72%, 51%, 0.486);
+        }
+
+        .copy-btn.copied {
+            background: #27ae60;
+        }
+
+        /* Badge/Label */
+        .template-label {
+            display: none;
+            font-size: 0.6rem;
+            padding: 2px 8px;
+            border-radius: 20px;
+            margin-bottom: 8px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .label-greeting { background: #e3f2fd; color: #1565c0; }
+        .label-hold { background: #fff3e0; color: #e65100; }
+        .label-assistance { background: #e8f5e9; color: #2e7d32; }
+        .label-silence { background: #fce4ec; color: #c62828; }
+        .label-closing { background: #f3e5f5; color: #6a1b9a; }
+        .label-email { background: #e0f7fa; color: #006064; }
+        .label-apology { background: #ffebee; color: #c62828; }
+        .label-info { background: #ede7f6; color: #4527a0; }
+        .label-followup { background: #e8f5e9; color: #2e7d32; }
+        .label-empathy { background: #fdf3e3; color: #a0522d; }
+
+        /* Toast Notification */
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #27ae60;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            z-index: 1000;
+            animation: slideIn 0.3s ease;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            background: #0a2442;
+            border-bottom-right-radius: 15px;
+            border-bottom-left-radius: 15px;            
+            padding: 8px 15px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .stat-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.9rem;
+            color: #ebebeb;
+        }
+
+        .stat-number {
+            font-weight: bold;
+            font-size: 1.1rem;
+            color: #cedc28;
+        }
+
+        /* Action Buttons */
+        .action-buttons {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+
+        .action-btn {
+            background: black;
+            border: 2px solid #00a088;
+            color: #cedc28;
+            padding: 8px 20px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.3s  ease, color 0.3s ease;
+        }
+
+        .action-btn:hover {
+            background: #00a088;
+            color: #fff;
+        }
+
+        /* Scroll to top button */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            background: #3498db;
+            color: white;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity 0.3s;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            border: none;
+            font-size: 20px;
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+        }
+
+        .scroll-top:hover {
+            background: #2980b9;
+        }
+
+        /* Editable field styles */
+        .editable-field {
+            display: inline-block;
+            min-width: 50px;
+            padding: 1px 5px;
+            border-bottom: 2px solid #f59e0b;
+            background: rgba(245, 158, 11, 0.15);
+            border-radius: 4px;
+            color: #f59e0b;
+            font-weight: 700;
+            outline: none;
+            cursor: text;
+            transition: background 0.2s, border-color 0.2s, box-shadow 0.2s;
+            font-size: inherit;
+            font-family: inherit;
+            line-height: inherit;
+        }
+
+        .editable-field:focus {
+            background: rgba(245, 158, 11, 0.25);
+            border-color: #d97706;
+            box-shadow: 0 0 0 2px rgba(245,158,11,0.2);
+        }
+
+        .editable-field:empty::before {
+            content: attr(data-placeholder);
+            color: #f59e0b;
+            font-style: italic;
+            opacity: 0.7;
+        }
+
+        @media (max-width: 950px) {
+            .two-columns {
+                flex-direction: column;
+            }
+            .column {
+                min-width: auto;
+            }
+            .header h1 {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+        <div class="stats-bar" id="statsBar"></div>
+
+        <div class="action-buttons">
+            <button class="action-btn" onclick="expandAll()">▼ Expand All Categories</button>
+            <button class="action-btn" onclick="collapseAll()">▶ Collapse All Categories</button>
+            <button class="action-btn" onclick="resetSavedValues()" style="border-color:#e74c3c;color:#e74c3c;" onmouseover="this.style.background='#e74c3c';this.style.color='white'" onmouseout="this.style.background='black';this.style.color='#e74c3c'">🔄 Reset All Fields</button>
+        </div>
+
+        <div class="two-columns">
+            <!-- English Column -->
+            <div class="column">
+                <div class="column-header english">
+                    <h2>🇬🇧 English Templates</h2>
+                    <div class="count" id="englishCount"></div>
+                </div>
+                <div id="englishCategories"></div>
+            </div>
+
+            <!-- Arabic Column -->
+            <div class="column">
+                <div class="column-header arabic">
+                    <h2>🇸🇦 قوالب الردود العربية</h2>
+                    <div class="count" id="arabicCount"></div>
+                </div>
+                <div style="direction: rtl;" id="arabicCategories"></div>
+            </div>
+        </div>
+    </div>
+
+    <button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+    <script>
+        // English Templates Categories
+        const englishCategories = [
+            {
+                name: "👋 Greetings",
+                label: "label-greeting",
+                templates: [
+                    "Welcome to Tahaluf, this is [AGENT_NAME_ENG], how may I help you today?",
+                    "Welcome to Tahaluf, this is [AGENT_NAME_ENG], it's my pleasure to assist you today.",
+                    "May I have your good name please?",
+                    "Hello, it's my pleasure to assist you, and I hope you're having a fantastic day.",
+                    "I can see that you chose [EVENT_NAME], correct?",
+                    "Please let me know how may I help you today?",
+                    "Can you please provide me with the registered email and the name of the exhibiting company to check from my end?",
+                    "Can you please provide me with your email address to check from my end?"
+                ]
+            },
+            {
+                name: "⏳ Hold & Wait",
+                label: "label-hold",
+                templates: [
+                    "May I put the chat on hold for 3 minutes maximum to check the required information and get back to you, please?",
+                    "Bear with me for 3 minutes maximum please while I check",
+                    "Please note that the last message is not visible for me, please feel free to resend it in a different way",
+                    "Thank you for waiting",
+                    "Apologies for the delay and thank you for waiting",
+                    "Thank you for holding & sorry for the delay."
+                ]
+            },
+            {
+                name: "💬 Assistance & Follow-up",
+                label: "label-assistance",
+                templates: [
+                    "Is there anything else I can help you with?",
+                    "Apart from this, is there anything else you would like me to assist you with?",
+                    "I hope I assisted you well, please if there's any other inquiries let me know and I would be more than happy to assist you further",
+                    "Are you still there? please let me know if you would like me to help you with something",
+                    "I'm afraid this might not be available from our side; however, we can do [ALTERNATIVE_SOLUTION]",
+                    "Thank you, please note that we will forward this to the relevant team to update and it will reflect within a couple of hours, and we will send you a confirmation email once this is done",
+                    "I hope the information provided was clear and assists you in planning smoothly.",
+                    "I hope this information assists you in planning smoothly."
+                ]
+            },
+            {
+                name: "🔇 Inactivity / Silence",
+                label: "label-silence",
+                templates: [
+                    "Are we still connected?",
+                    "Kindly note that due to inactivity, this chat will close in 1 minute, please contact us back if you still need any assistance and we will be more than happy to assist you further.",
+                    "Please don't hesitate to reach us back if you still need any assistance and we will be glad to help you and we look forward to seeing you at the venue!",
+                    "Please note that I can't see the last message, please try sharing the information another way"
+                ]
+            },
+            {
+                name: "🏁 Closing & Farewell",
+                label: "label-closing",
+                templates: [
+                    "Thank you for contacting Tahaluf and have a joyful day",
+                    "My pleasure, I hope I assisted you well.",
+                    "Thank you for contacting Tahaluf and have a nice day",
+                    "We look forward to welcoming you at the venue soon!",
+                    "Always happy to help, thank you for contacting Tahaluf and have a great day, see you soon!"
+                ]
+            },
+            {
+                name: "📧 Email & Formal Responses",
+                label: "label-email",
+                templates: [
+                    "Thank you for waiting, please note that we will check internally with the relevant team regarding your query and we will get back to you as soon as possible on your email with the feedback",
+                    "Can you please provide me with the email address that you would like to update from visitor to exhibitor and your company name to forward it to the relevant team to proceed?",
+                    "You can always reach our customer service team via:\nEmail: [EMAIL_PLACEHOLDER]\nWhatsApp: +966 55 595 3750\nCustomer Service Hotline: +966 11 510 1913\n\nAnd of course, you're welcome to reach our onsite team who can help you at info hub and help desk at [LOCATION_DETAILS]",
+                    "Thank you for reaching out and checking with us.",
+                    "Thank you for reaching out.",
+                    "Thank you for sharing this with us.",
+                    "Thank you for clarifying.",
+                    "For your reference, these emails will be sent from '[SENDER_EMAIL]', so please make sure to check your inbox, including your spam or junk folder, and whitelist our email if needed."
+                ]
+            },
+            {
+                name: "😊 Apology & Appreciation",
+                label: "label-apology",
+                templates: [
+                    "Thank you for reaching out, and apologies for any delay or inconvenience this may have caused.",
+                    "Apologies for any delay or inconvenience this may have caused.",
+                    "Thank you for your patience and understanding. We appreciate it greatly and we are looking forward to welcoming you at the venue!",
+                    "We appreciate your patience and understanding during the process."
+                ]
+            },
+            {
+                name: "ℹ️ Informational Responses",
+                label: "label-info",
+                templates: [
+                    "Additionally, please find attached a file outlining your startup pod inclusions for your reference.",
+                    "For your ease, please feel free to check the attached file for guidance.",
+                    "Furthermore, kindly note that you may reach out to our official supplier, [SUPPLIER_NAME], for any booth-related queries. They are the relevant team and will be able to assist you effectively.",
+                    "Please make sure to check your inbox, junk, spam, and deleted emails, as our messages might have landed there.",
+                    "We look forward to welcoming you to the venue and hope you enjoy the event!",
+                    "We are looking forward to welcoming you at the venue.",
+                    "Thank you once again for checking with us and we are looking forward to welcoming you at the venue.",
+                    "If you encounter any difficulties, please do not hesitate to reply back, and I will be happy to assist you further.",
+                    "We are looking forward to seeing you soon!",
+                    "Kindly note that we will forward your request to the relevant team for their review and we will get back to you as soon as we receive their feedback.",
+                    "Wishing you a smooth and successful event experience and we look forward to seeing you soon!",
+                    "Thank you for your enthusiasm and interest in [EVENT_NAME]",
+                    "Kindly provide us with more clarification regarding your query, and we will be more than happy to assist you accordingly.",
+                    "In the meantime, please let us know if there is anything else you require assistance with. We will be more than happy to support you further."
+                ]
+            },
+            {
+                name: "💛 Empathetic Phrases - Acknowledging the Customer's Situation",
+                label: "label-empathy",
+                templates: [
+                    "Thank you for bringing this to our attention. We appreciate you taking the time to contact us.",
+                    "I understand your concern, and thank you for sharing this with us.",
+                    "Thank you for outlining the situation so clearly.",
+                    "We acknowledge your request and the importance of this matter to you."
+                ]
+            },
+            {
+                name: "💛 Empathetic Phrases - Showing Understanding & Empathy (Formal Tone)",
+                label: "label-empathy",
+                templates: [
+                    "I completely understand how this may be concerning.",
+                    "I appreciate that this situation may be frustrating.",
+                    "I understand the impact this may have and appreciate your patience.",
+                    "We recognize the importance of resolving this for you.",
+                    "Thank you for your understanding as we review this matter."
+                ]
+            },
+            {
+                name: "💛 Empathetic Phrases - Reassuring the Customer",
+                label: "label-empathy",
+                templates: [
+                    "Please be assured that we are looking into this carefully.",
+                    "We will do our best to assist you with this request.",
+                    "Rest assured that your enquiry is being reviewed by the relevant team.",
+                    "We are committed to supporting you throughout this process.",
+                    "We will ensure this is handled as efficiently as possible."
+                ]
+            },
+            {
+                name: "💛 Empathetic Phrases - When Action Has Been Taken",
+                label: "label-empathy",
+                templates: [
+                    "We have now forwarded your request to the relevant team.",
+                    "Your request has been received and is currently under review.",
+                    "The appropriate department has been notified accordingly.",
+                    "Necessary steps have been taken to address this matter.",
+                    "We are currently coordinating internally to ensure accuracy."
+                ]
+            },
+            {
+                name: "💛 Empathetic Phrases - When More Time Is Needed",
+                label: "label-empathy",
+                templates: [
+                    "We kindly ask for your patience while this is being reviewed.",
+                    "This matter requires further verification, and we appreciate your understanding.",
+                    "We will share an update as soon as further information becomes available.",
+                    "Thank you for your continued patience during this process."
+                ]
+            },
+            {
+                name: "💛 Empathetic Phrases - Offering Further Help",
+                label: "label-empathy",
+                templates: [
+                    "Please let us know if there is anything further we can assist you with.",
+                    "Should you have any additional questions, we are happy to help.",
+                    "Do not hesitate to contact us if you require further clarification.",
+                    "We remain at your disposal for any additional support."
+                ]
+            },
+            {
+                name: "💛 Empathetic Phrases - Closing Politely & Professionally",
+                label: "label-empathy",
+                templates: [
+                    "Thank you for your cooperation. We appreciate your understanding.",
+                    "Thank you for your patience and consideration.",
+                    "We value your cooperation and understanding.",
+                    "Thank you for contacting us."
+                ]
+            },
+            {
+                name: "💛 Empathetic Phrases - Phone-Specific Empathetic Phrases",
+                label: "label-empathy",
+                templates: [
+                    "Thank you for explaining that; I understand your concern.",
+                    "I appreciate you taking the time to discuss this with me.",
+                    "I understand where you're coming from.",
+                    "Let me ensure I have understood this correctly.",
+                    "I will be happy to guide you through the next steps."
+                ]
+            },
+            {
+                name: "💛 Empathetic Phrases - Chat-Friendly (Still Formal)",
+                label: "label-empathy",
+                templates: [
+                    "Thank you for your message. I completely understand your request.",
+                    "Allow me to check this for you. I appreciate your patience.",
+                    "I'm happy to assist you further.",
+                    "Please don't worry about it. I'll take care of this for you.",
+                    "I understand how you feel. I'm here to help resolve this for you."
+                ]
+            }
+        ];
+
+        // Arabic Templates Categories
+        const arabicCategories = [
+            {
+                name: "👋 الترحيب / Greetings",
+                label: "label-greeting",
+                templates: [
+                    "اهلا بك, مرحبا بكم في تحالف, معكم [AGENT_NAME], كيف يمكنني ان اساعد اليوم؟",
+                    "اهلا بك, مرحبا بكم في تحالف, معكم [AGENT_NAME]",
+                    "هل يمكنني معرفة اسمك للترحيب بك من فضلك؟",
+                    "مرحبًا بك، يسعدني مساعدتك, وأتمنى ان تكون بخير اليوم",
+                    "يسعدني مساعدتك بخصوص سؤالك",
+                    "كيف يمكنني مساعدتك اليوم؟",
+                    "هل لي ببريدك الإلكتروني للتحقق من فضلك؟",
+                    "هل يمكنك تزويدي بالبريد الإلكتروني المسجل من فضلك واسم الشركة العارضة؟",
+                    "هل يمكنك التوضيح اكثر عن استفسارك لمساعدتك؟",
+                    "ارى انك اخترت معرض [EVENT_NAME], صحيح؟",
+                    "شكرا للتاكيد, كيف يمكنني مساعدتك اليوم؟"
+                ]
+            },
+            {
+                name: "⏳ الانتظار / Hold & Wait",
+                label: "label-hold",
+                templates: [
+                    "هل يمكنني وضع المحادثة على الانتظار لمدة 3 دقائق بحد اقصى للتحقق من المعلومات المطلوبة وسأعود إليك؟",
+                    "شكرا لانتظارك, هل يمكنني وضع المحادثة على الانتظار لمدة دقيقتين بحد اقصى مرة اخرى للتحقق بشكل اكبر؟",
+                    "شكرا لك, لحظات من فضلك",
+                    "شكرًا على الانتظار",
+                    "شكرًا على الانتظار، وأعتذر عن التأخير",
+                    "شكرًا لتواصلكم معنا للتحقق من هذا الامر"
+                ]
+            },
+            {
+                name: "💬 المساعدة / Assistance",
+                label: "label-assistance",
+                templates: [
+                    "هل هناك أي شيء آخر يمكنني مساعدتك به؟",
+                    "بخلاف هذا، هل هناك أي شيء آخر استطيع مساعدتك به اليوم؟",
+                    "آمل أنني قد قدمت لك المساعدة المطلوبة. إذا كانت لديك أي استفسارات أخرى، يرجى إعلامي وسأكون سعيدًا بمساعدتك",
+                    "برجاء العلم ان فريقنا المختص سوف يساعدك بخصوص هذا الشأن ويمكنك التواصل معهم عبر التفاصيل",
+                    "برجاء العلم انه تم ارسال ايميل تأكيد يحتوى على رابط لتحميل الباركود",
+                    "وتسهيلا لك سأرسل الباركود الخاص بك هنا",
+                    "أخشى أن هذا قد لا يكون متاحًا من جانبنا؛ ومع ذلك، يمكننا أن [ALTERNATIVE_SOLUTION]",
+                    "آمل أنني قد قدمت لك المساعدة المطلوبة",
+                    "أتمنى أن تساعدك هذه المعلومات في التخطيط بسلاسة نتطلع إلى الترحيب بك في المكان"
+                ]
+            },
+            {
+                name: "🔇 الصمت / Inactivity",
+                label: "label-silence",
+                templates: [
+                    "مرحبا, هل لا تزال هنا؟",
+                    "هل ما زلنا متصلين؟",
+                    "برجاء العلم انه بسبب عدم التفاعل، سيتم إغلاق هذه المحادثة في غضون دقيقة. يرجى التواصل معنا مرة أخرى إذا كنت لا تزال بحاجة إلى المساعدة"
+                ]
+            },
+            {
+                name: "🏁 الإغلاق / Closing",
+                label: "label-closing",
+                templates: [
+                    "العفو, بكل سرور",
+                    "لا مشكلة ابدا, نحن هنا للمساعدة",
+                    "برجاء عدم التردد في التواصل معنا اذا كان لديك المزيد من الاستفسارات",
+                    "تحالف :البريد الإلكتروني\n[EMAIL_PLACEHOLDER]\nواتساب: WHATSAPP:+966 55 595 3750\nالخط الساخن لخدمة العملاء: Phone:+966 11 510 1913",
+                    "نتمنى رؤيتكم قريبا!",
+                    "شكرًا لتواصلك مع تحالف، نتمنى لك يومًا سعيدًا"
+                ]
+            },
+            {
+                name: "📧 البريد الإلكتروني والردود الرسمية",
+                label: "label-email",
+                templates: [
+                    "شكرًا على صبرك، يرجى العلم بأننا سنقوم بالتحقق داخليًّا مع الفريق المعني بشأن استفسارك، وسنرد عليك في أقرب وقت ممكن عبر بريدك الإلكتروني مع الرد على استفسارك",
+                    "هل يمكنك أن تزودني بعنوان البريد الإلكتروني الذي ترغب في تحديثه من ”زائر“ إلى ”عارض“ واسم شركتك، حتى أتمكن من إرساله إلى الفريق المعني لمتابعة الأمر؟",
+                    "يمكنك دائمًا التواصل مع فريق خدمة العملاء لدينا عبر\nالبريد الإلكتروني: [EMAIL_PLACEHOLDER]\nواتساب: WHATSAPP:+966 55 595 3750\nالخط الساخن لخدمة العملاء: Phone:+966 11 510 1913   \n\nوبالطبع، نرحب بك للتواصل مع فريقنا في الموقع الذي يمكنه مساعدتك في مركز المعلومات ومكتب المساعدة في [LOCATION_DETAILS]",
+                    "شكرًا لك على اتصالك بنا والتحقق من الأمر معنا.",
+                    "شكرًا على اتصالك بنا.",
+                    "شكرًا لك على مشاركتنا هذا.",
+                    "شكراً على التوضيح.",
+                    "للعلم، سيتم إرسال هذه الرسائل الإلكترونية من عنوان البريد الإلكتروني ”[SENDER_EMAIL]“، لذا يرجى التأكد من مراجعة صندوق الوارد الخاص بك، بما في ذلك مجلد الرسائل غير المرغوب فيها أو البريد العشوائي، وإضافة عنوان بريدنا الإلكتروني إلى قائمة العناوين المسموح بها إذا لزم الأمر.",                    
+                ]
+            },
+            {
+                name: "😊 الاعتذار / Apology",
+                label: "label-apology",
+                templates: [
+                    "شكرا لتفهمك ونعتذر مرة اخرى عن اى تاخير او ازعاج ونتمنى ان نراك فى معارضنا المقبلة وان تحظى بوقت جميل وتجربة رائعة معنا",
+                    "ويمكنك ايضا ان تتواصل مع فريقنا فى مكتب المساعدة فى [LOCATION_DETAILS] لمساعدتك عن معلومات اكثر",
+                    "برجاء العلم ان الطلب بالفعل قيد المراجعة من فريق التسجيلات وسوف يتم التواصل معكم فور انتهاء المراجعة",
+                    "برجاء العلم انه تم تسجيل اهتمامك بحضور هذه الورشة حيث ستستطيع الحضور للورش التي تهمك, ولكن برجاء العلم انها غالبا ما ستكون بأسبقية الحضور",
+                    "برجاء العلم انه سيتم تسليمك البطاقة التعريفية الخاصة بك في المعرض مباشرة, وبإمكانك ايضا الدخول على التطبيق الخاص بالمعرض بإيميلك المسجل",
+                    "اذا كان مكتوب في الوصف ان الورشة الفلانية تقدم شهادة فنعم, اذا لم يكن مذكورا فسيكون تقديم شهادة شيء غير مؤكد بعد",
+                    "برجاء العلم انه لا يمكننى رؤية الملف الذى ارسلته للتو, برجاء ارسال الملف بصيغة صورة او كتابة لاتمكن من رؤيتها"
+                ]
+            },
+            {
+                name: "ℹ️ معلومات إضافية / Informational",
+                label: "label-info",
+                templates: [
+                    "شكرا على الانتظار, برجاء العلم اننا سوف نقوم بالتحقق من المعلومات والتواصل معك مرة اخرى عن طريق البريد الإلكتروني الخاص بك",
+                    "شكرا لتواصلكم معنا للتحقق من هذا الامر"
+                ]
+            },
+            {
+                name: "💛 عبارات التعاطف - الاعتراف بموقف العميل",
+                label: "label-empathy",
+                templates: [
+                    "شكرًا لإبلاغنا بهذا الأمر، ونقدر لك تواصلك معنا.",
+                    "أفهم قلقك، وشكرًا لمشاركتنا هذا الأمر.",
+                    "شكرًا لتوضيح الموقف بهذه الدقة.",
+                    "نحن ندرك طلبك وأهمية هذا الأمر بالنسبة لك."
+                ]
+            },
+            {
+                name: "💛 عبارات التعاطف - إظهار التفهم والتعاطف (أسلوب رسمي)",
+                label: "label-empathy",
+                templates: [
+                    "أفهم تمامًا مدى قلقك من هذا الأمر.",
+                    "أقدر أن هذا الموقف قد يكون مزعجًا.",
+                    "أفهم التأثير الذي قد يتركه هذا، وأقدر صبرك.",
+                    "ندرك أهمية حل هذا الأمر بالنسبة لك.",
+                    "شكرًا لتفهمك بينما نراجع هذا الموضوع."
+                ]
+            },
+            {
+                name: "💛 عبارات التعاطف - طمأنة العميل",
+                label: "label-empathy",
+                templates: [
+                    "كن مطمئنًا، نحن ندرس هذا الأمر بعناية.",
+                    "سنبذل قصارى جهدنا لمساعدتك في هذا الطلب.",
+                    "كن مطمئنًا، استفسارك قيد المراجعة من قِبل الفريق المختص.",
+                    "نحن ملتزمون بدعمك طوال هذه العملية.",
+                    "سنحرص على التعامل مع هذا الأمر بأكبر قدر من الكفاءة."
+                ]
+            },
+            {
+                name: "💛 عبارات التعاطف - عند اتخاذ إجراء",
+                label: "label-empathy",
+                templates: [
+                    "لقد أحلنا طلبك إلى الفريق المختص.",
+                    "تم استلام طلبك وهو حاليًا قيد المراجعة.",
+                    "تم إبلاغ القسم المعني بالأمر وفقًا لذلك.",
+                    "تم اتخاذ الخطوات اللازمة لمعالجة هذا الأمر.",
+                    "نقوم حاليًا بالتنسيق داخليًا لضمان الدقة."
+                ]
+            },
+            {
+                name: "💛 عبارات التعاطف - عند الحاجة إلى مزيد من الوقت",
+                label: "label-empathy",
+                templates: [
+                    "نرجو منك الصبر بينما يتم مراجعة هذا الأمر.",
+                    "يستلزم هذا الأمر مزيدًا من التحقق، ونقدر لك تفهمك.",
+                    "سنطلعك على آخر المستجدات فور توفر معلومات إضافية.",
+                    "شكرًا لصبرك المستمر خلال هذه العملية."
+                ]
+            },
+            {
+                name: "💛 عبارات التعاطف - تقديم المزيد من المساعدة",
+                label: "label-empathy",
+                templates: [
+                    "يرجى إعلامنا إذا كان بإمكاننا مساعدتك في أي شيء آخر.",
+                    "إذا كان لديك أي أسئلة إضافية، يسعدنا المساعدة.",
+                    "لا تتردد في التواصل معنا إذا كنت بحاجة إلى مزيد من التوضيح.",
+                    "نحن رهن إشارتك لأي دعم إضافي."
+                ]
+            },
+            {
+                name: "💛 عبارات التعاطف - الختام باحترافية",
+                label: "label-empathy",
+                templates: [
+                    "شكرًا لتعاونك، ونقدر لك تفهمك.",
+                    "شكرًا لصبرك واهتمامك.",
+                    "نثمن تعاونك وتفهمك.",
+                    "شكرًا لتواصلك معنا."
+                ]
+            },
+            {
+                name: "💛 عبارات التعاطف - مخصصة للمكالمات الهاتفية",
+                label: "label-empathy",
+                templates: [
+                    "شكرًا لشرحك ذلك، أفهم قلقك.",
+                    "أقدر لك وقتك في مناقشة هذا الأمر معي.",
+                    "أفهم ما تقصده.",
+                    "دعني أتأكد من أنني قد فهمت الأمر بشكل صحيح.",
+                    "يسعدني إرشادك خلال الخطوات التالية."
+                ]
+            },
+            {
+                name: "💛 عبارات التعاطف - ملائمة للدردشة (رسمية)",
+                label: "label-empathy",
+                templates: [
+                    "شكرًا على رسالتك، أفهم طلبك تمامًا.",
+                    "دعني أتحقق من ذلك لك، أقدر صبرك.",
+                    "يسعدني مساعدتك أكثر.",
+                    "لا تقلق، سأتولى هذا الأمر.",
+                    "أفهم ما تشعر به، وأنا هنا لمساعدتك في حل هذا."
+                ]
+            }
+        ];
+
+        // --- localStorage helpers ---
+        // Saved values keyed by placeholder name e.g. "AGENT_NAME" -> "Ahmed"
+        function loadSavedValues() {
+            try { return JSON.parse(localStorage.getItem('kb_field_values') || '{}'); }
+            catch(e) { return {}; }
+        }
+        function saveValue(placeholder, value) {
+            const vals = loadSavedValues();
+            vals[placeholder] = value;
+            localStorage.setItem('kb_field_values', JSON.stringify(vals));
+        }
+
+        // Make brackets editable, restoring saved values
+        function makeFieldsEditable(text) {
+            const saved = loadSavedValues();
+            return text.replace(/\[([^\]]+)\]/g, function(match, placeholder) {
+                const escaped = placeholder.replace(/"/g, '&quot;');
+                const currentVal = (saved[placeholder] !== undefined && saved[placeholder] !== placeholder)
+                    ? saved[placeholder].replace(/</g,'&lt;').replace(/>/g,'&gt;')
+                    : placeholder;
+                return '[<span contenteditable="true" class="editable-field" data-placeholder="' + escaped + '">' + currentVal + '</span>]';
+            });
+        }
+
+        // Get final text from a template-text element (with edited values, no brackets)
+        function getFinalText(templateTextEl) {
+            const clone = templateTextEl.cloneNode(true);
+            clone.querySelectorAll('.editable-field').forEach(function(span) {
+                const val = span.textContent || span.getAttribute('data-placeholder');
+                const textNode = document.createTextNode(val);
+                // Also remove the surrounding [ ] characters in the parent
+                const parent = span.parentNode;
+                // Replace the bracket before the span
+                if (parent.childNodes) {
+                    span.parentNode.replaceChild(textNode, span);
+                }
+            });
+            // Remove leftover bare brackets that surrounded editable fields
+            return clone.textContent.replace(/\[\]/g, '').replace(/\[([^\]]*)\]/g, '$1');
+        }
+
+        // Refresh all editable fields on page after a save (so all instances update)
+        function refreshAllFields() {
+            const saved = loadSavedValues();
+            document.querySelectorAll('.editable-field').forEach(function(span) {
+                const ph = span.getAttribute('data-placeholder');
+                if (ph && saved[ph] !== undefined) {
+                    // Only update spans that still show the placeholder default or old saved value
+                    span.textContent = saved[ph];
+                }
+            });
+        }
+
+        // Function to render categories for a column
+        function renderCategories(containerId, categories, isArabic) {
+            isArabic = isArabic || false;
+            const container = document.getElementById(containerId);
+            container.innerHTML = '';
+            
+            let totalTemplates = 0;
+            
+            categories.forEach(function(category, index) {
+                const categoryDiv = document.createElement('div');
+                categoryDiv.className = 'category collapsed ' + (isArabic ? 'arabic-cat' : '');
+                categoryDiv.id = containerId + '-cat-' + index;
+                
+                const header = document.createElement('div');
+                header.className = 'category-header';
+                header.onclick = function() { toggleCategory(categoryDiv); };
+                header.innerHTML = '<h3>' + category.name + '</h3><span class="category-toggle">▼</span>';
+                
+                const content = document.createElement('div');
+                content.className = 'category-content';
+                
+                const grid = document.createElement('div');
+                grid.className = 'template-grid';
+                
+                category.templates.forEach(function(template) {
+                    const card = document.createElement('div');
+                    card.className = 'template-card ' + (isArabic ? 'arabic-card' : '');
+                    
+                    const label = document.createElement('span');
+                    label.className = 'template-label ' + category.label;
+                    label.textContent = category.name.split('/')[0];
+                    
+                    const textDiv = document.createElement('div');
+                    textDiv.className = 'template-text ' + (isArabic ? 'arabic-text' : '');
+                    textDiv.innerHTML = makeFieldsEditable(escapeHtml(template));
+
+                    // Prevent Enter key from inserting newlines in editable fields
+                    textDiv.addEventListener('keydown', function(e) {
+                        if (e.key === 'Enter' && e.target.classList.contains('editable-field')) {
+                            e.preventDefault();
+                        }
+                    });
+
+                    // Save on blur (when agent finishes typing) + update all matching fields
+                    textDiv.addEventListener('focusout', function(e) {
+                        if (e.target.classList.contains('editable-field')) {
+                            const ph = e.target.getAttribute('data-placeholder');
+                            const val = e.target.textContent.trim();
+                            if (ph) {
+                                saveValue(ph, val || ph);
+                                // Update every other span with the same placeholder
+                                document.querySelectorAll('.editable-field[data-placeholder="' + ph + '"]').forEach(function(other) {
+                                    if (other !== e.target) other.textContent = val || ph;
+                                });
+                                showToast('✔ "' + ph + '" saved for this session', 'success');
+                            }
+                        }
+                    });
+                    
+                    const btn = document.createElement('button');
+                    btn.className = 'copy-btn ' + (isArabic ? 'arabic-btn' : '');
+                    btn.innerHTML = '📋 Copy Template';
+                    btn.onclick = function() {
+                        const finalText = getFinalText(textDiv);
+                        copyToClipboard(finalText, btn);
+                    };
+                    
+                    card.appendChild(label);
+                    card.appendChild(textDiv);
+                    card.appendChild(btn);
+                    grid.appendChild(card);
+                    totalTemplates++;
+                });
+                
+                content.appendChild(grid);
+                categoryDiv.appendChild(header);
+                categoryDiv.appendChild(content);
+                container.appendChild(categoryDiv);
+            });
+            
+            return totalTemplates;
+        }
+
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+        
+        function toggleCategory(categoryDiv) {
+            categoryDiv.classList.toggle('collapsed');
+        }
+        
+        function expandAll() {
+            document.querySelectorAll('.category').forEach(function(cat) {
+                cat.classList.remove('collapsed');
+            });
+        }
+        
+        function collapseAll() {
+            document.querySelectorAll('.category').forEach(function(cat) {
+                cat.classList.add('collapsed');
+            });
+        }
+        
+        function copyToClipboard(text, button) {
+            navigator.clipboard.writeText(text).then(function() {
+                const originalText = button.innerHTML;
+                button.innerHTML = '✅ Copied!';
+                button.classList.add('copied');
+                showToast('Template copied to clipboard!');
+                setTimeout(function() {
+                    button.innerHTML = originalText;
+                    button.classList.remove('copied');
+                }, 2000);
+            }).catch(function(err) {
+                console.error('Failed to copy: ', err);
+                showToast('Failed to copy. Please try again.', 'error');
+            });
+        }
+        
+        function showToast(message, type) {
+            type = type || 'success';
+            const toast = document.createElement('div');
+            toast.className = 'toast';
+            toast.style.backgroundColor = type === 'success' ? '#27ae60' : '#e74c3c';
+            toast.textContent = message;
+            document.body.appendChild(toast);
+            setTimeout(function() { toast.remove(); }, 3000);
+        }
+        
+        window.addEventListener('scroll', function() {
+            const scrollBtn = document.getElementById('scrollTop');
+            if (window.scrollY > 300) {
+                scrollBtn.classList.add('visible');
+            } else {
+                scrollBtn.classList.remove('visible');
+            }
+        });
+        
+        function resetSavedValues() {
+            if (confirm('Reset all saved field values (AGENT_NAME_ENG, AGENT_NAME, EVENT_NAME, etc.) back to placeholders?')) {
+                localStorage.removeItem('kb_field_values');
+                document.querySelectorAll('.editable-field').forEach(function(span) {
+                    span.textContent = span.getAttribute('data-placeholder');
+                });
+                showToast('All fields reset to defaults');
+            }
+        }
+
+        window.copyToClipboard = copyToClipboard;
+        window.toggleCategory = toggleCategory;
+        window.expandAll = expandAll;
+        window.collapseAll = collapseAll;
+        window.resetSavedValues = resetSavedValues;
+        
+        // Initialize
+        const englishTotal = renderCategories('englishCategories', englishCategories, false);
+        const arabicTotal = renderCategories('arabicCategories', arabicCategories, true);
+        
+        document.getElementById('englishCount').innerHTML = englishTotal + ' templates';
+        document.getElementById('arabicCount').innerHTML = arabicTotal + ' templates';
+        document.getElementById('statsBar').innerHTML =
+            '<div class="stat-item"><span class="stat-number">' + (englishTotal + arabicTotal) + '</span> Total Templates</div>' +
+            '<div class="stat-item"><span class="stat-number">' + (englishCategories.length + arabicCategories.length) + '</span> Categories</div>' +
+            '<div class="stat-item"><span class="stat-number">' + englishTotal + '</span> English Templates</div>' +
+            '<div class="stat-item"><span class="stat-number">' + arabicTotal + '</span> Arabic Templates</div>';
+        
+    </script> 
+    <div class="dir6">
+<img class="svg2" src="idyUJqPKjE_logos.svg"width="350" height="150">
+    
+   <p class="conclusion">  Content Contributions:<br><br>
+        🖺💬Leena Mostafa / 💡Ahmed Mahmoud / 💡Mishkat Mohamed
+       <br> 🖹💡Salma Abd El Nasser /
+        🖹💬Salma Hany / 🖹💬Abeer Tarek  <br>
+        🖹💬Eslam Mohamed / 💡Mohamed Othman /
+        🖹💬Dina Alaa</p>
+        
+
+    <p class="conclusion-me" title="Hello! &#128075; Scan this whatsapp QR code to contact me">
+
+Knowledge base built with (HTML - CSS - Js) by <br> Hossam soliman / hossam.suliman@informa.com 
+    </p>
+<img class="me" src="781e6618-5a7e-4068-9cdc-ac069a15831a.jpg" width="100" height="100">
+
+</div>
+   </body>
+    </html>
