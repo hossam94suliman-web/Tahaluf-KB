@@ -1,0 +1,1280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <title> Tahaluf KB </title>
+<link rel="icon" href="knowledge.png" type="image/png" sizes="512x512" />
+
+    <script src="auth.js"></script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<link rel="stylesheet" href="Tahaluf KB CSS.css">
+
+</head>
+
+<body class="website1">
+    <header> Tahaluf Knowledge Base 
+</header>
+<div class="page-wrapper">
+    
+
+<!-- ── Rotating background ── -->
+<div class="bg-wrapper">
+  <img id="bgImg" class="bg-img" src="people-network-1920.svg" alt="" />
+</div>
+
+<!-- ── Central Events area ── -->
+
+    <div class="dir2" id="eventsCircle">
+      <div class="events-center">
+<a class="ev-but" href="Events.html"> Events </a>   
+    </div>
+  </div>
+
+
+<script>
+  // ── Background half-spin on hover ──────────────────────────────────────
+  const bgImg   = document.getElementById('bgImg');
+  const circle  = document.getElementById('eventsCircle');
+
+  let currentDeg = 0;   // tracks total accumulated rotation
+  let isHovered  = false;
+
+  circle.addEventListener('mouseenter', () => {
+    if (isHovered) return;
+    isHovered = true;
+    currentDeg += 360;
+    bgImg.style.transform = `rotate(${currentDeg}deg)`;
+  });
+
+  circle.addEventListener('mouseleave', () => {
+    isHovered = false;
+        currentDeg += -360;
+    bgImg.style.transform = `rotate(${currentDeg}deg)`;
+  });
+
+</script>
+
+
+    <div class="dir1">
+    <p class="Q-files"> 
+Quality Measures By Leena
+  <a class="q-btn"href="KSA WhatsApp Chat Handling  Step by Step Guide.pdf"target="_blank" > <img class="svg" src="whatsapp.svg" width="30px" height="30px"> Whatsapp</a><br>
+<a class="q-btn"href="KSA Inbound Call Handling Instructions 3 2.pdf" target="_blank" > <img class="svg" src="telephone.svg"width="30px" height="30px"> Call</a><br>
+  <a class="q-btn"href="KSA Email Handling Instructions  2 2.pdf" target="_blank" > <img class="svg" src="envelope.svg"width="30px" height="30px"> Email</a>
+
+  <br><br><span class="HFQ-files"> Quality Corner</span>
+
+</p></div>
+
+  <!--<div class="test-div" style="margin-top: 50px;margin-left: 100px;">
+  <a class="step-btn">   <span>STEP IN</span>
+ </a></div> -->
+
+
+<p id="status" class="notification">Check-out Alarm <br><br>(Not Activiated) <img style="margin-left: 20px ;" src="bell (1).png" width="60" height="60"> </p>
+<audio id="notificationSound" src="Leena record.mp3"></audio>
+ 
+<script>
+// Set multiple alarm times
+const targetTimes = ["16:59"];
+ 
+// Allowed days (Mon–Wed example)
+const allowedDays = [1, 3,4];
+ 
+const statusElement = document.getElementById("status");
+const notificationSound = document.getElementById("notificationSound");
+ 
+let alarmActivated = false;
+ 
+// Activate alarm on first click
+document.addEventListener("click", () => {
+  if (!alarmActivated) {
+    alarmActivated = true;
+    statusElement.innerHTML =
+      `Activated <img src="bell.png" width="60" height="60">`;
+  }
+});
+ 
+function checkTime() {
+  if (!alarmActivated) return;
+ 
+  const now = new Date();
+ 
+  const currentTime =
+    `${String(now.getHours()).padStart(2,'0')}:${String(now.getMinutes()).padStart(2,'0')}`;
+ 
+  const currentDay = now.getDay();
+ 
+  if (allowedDays.includes(currentDay) && targetTimes.includes(currentTime)) {
+    notificationSound.play();
+    statusElement.textContent = "Check Out Time";
+      } else {
+    statusElement.innerHTML =
+      `Activated <img src="bell.png" width="60" height="60">`;
+  }
+}
+ 
+setInterval(checkTime, 1000);
+</script>
+
+
+
+
+
+<div class="dir3">
+<p class="Whats">
+Helpful Templates powered by Salma Hany & Abeer Tarek<br><br><a class="app" href="english-whatsapp.html">🗨️ Whats Templates</a>
+<button class="email-template-btn" onclick="openEmailTemplates()">
+        📧 Email Templates
+    </button>
+    <br><br><span class="whatsapp-H"> Templates Corner</span>
+
+</p></div>
+
+    <!-- The Modal -->
+    <div id="emailModal" class="email-modal">
+        <div class="email-modal-content">
+            <div class="email-modal-header">
+                <h2>📧 Email Templates Database</h2>
+                <button class="close-modal" onclick="closeEmailTemplates()">&times;</button>
+            </div>
+            <div id="emailCaseList" class="email-case-list"></div>
+        </div>
+    </div>
+
+    <script>
+       // Email Templates Database — Deduplicated Version
+// Alternatives kept ONLY when content genuinely differs from the main template.
+
+const emailTemplates = {
+
+  /* ─────────────────────────────────────────────────────────────
+     VISITOR REGISTRATION
+     All 3 originals were structurally identical → no alternatives
+  ───────────────────────────────────────────────────────────── */
+  'visit participation': {
+    title: 'Visitor Registration',
+    template: `Dear [Customer Name],
+
+Thank you for your interest in registering for [EVENT NAME].
+
+Please use the following link to register for your visitor ticket:
+[REGISTRATION_LINK]
+
+Should you need any assistance with the registration process, please don't hesitate to reach out.`
+  },
+
+  /* ─────────────────────────────────────────────────────────────
+     EXHIBITOR STAND BOOKING
+     Alt kept: startup-exhibitor version (adds a second link)
+  ───────────────────────────────────────────────────────────── */
+  'exhibitor participation': {
+    title: 'Exhibitor Stand Booking',
+    template: `Dear [Customer Name],
+
+Thank you for your interest in exhibiting at [EVENT NAME].
+
+Please use the following link to book your stand:
+[EXHIBITOR_BOOKING_LINK]
+
+A member of our sales team will be in touch with you shortly to discuss available options and pricing.`,
+    alternatives: [
+      {
+        title: 'With Startup Exhibitor Link',
+        template: `Dear [Customer Name],
+
+Thank you for your interest in exhibiting at [EVENT NAME].
+
+Please use the following link to submit your details:
+[EXHIBITOR_BOOKING_LINK]
+
+For startup exhibitors, please use this link instead:
+[STARTUP_EXHIBITOR_LINK]
+
+A member of our sales team will be in touch with you shortly to discuss available options and pricing.`
+      }
+    ]
+  },
+
+  /* ─────────────────────────────────────────────────────────────
+     VISITOR RESOURCES
+     All 3 originals have genuinely different content → all kept
+     (different links, different sections highlighted per event)
+  ───────────────────────────────────────────────────────────── */
+  'Visitor resource': {
+    title: 'Visitor Resources',
+    template: `Dear [Customer Name],
+
+Thank you for your inquiry about visitor resources for [EVENT NAME].
+
+Please visit our "Plan Your Visit" page for information about:
+- Location and venue details
+- Shuttle bus schedules
+- Parking information
+- Accommodation options
+- Event show times
+
+Link: [VISITOR_RESOURCES_LINK]
+
+Should you need any further assistance, please let us know.`,
+    alternatives: [
+      {
+        title: 'Generic — Info Not Yet Live',
+        template: `Dear [Customer Name],
+
+Thank you for your inquiry about visitor resources for [EVENT NAME].
+
+Please note that visitor resource information (location, shuttle bus, floor plan, accommodation, event show times, parking) is usually updated closer to the event date. We recommend checking the official website's "Plan Your Visit" page periodically for updates.
+
+Should you need any further assistance, please let us know.`
+      },
+      {
+        title: 'Extended — With FAQ, Accommodation & Shuttle Links',
+        template: `Dear [Customer Name],
+
+Thank you for your inquiry about visitor resources for [EVENT NAME].
+
+Please visit our "Plan Your Visit" page:
+[VISITOR_RESOURCES_LINK]
+
+Additional useful links:
+- Event show times / FAQ: [FAQ_LINK]
+- Accommodation: [ACCOMMODATION_LINK]
+- Shuttle bus: [SHUTTLE_BUS_LINK]
+
+Should you need any further assistance, please let us know.`
+      }
+    ]
+  },
+
+  /* ─────────────────────────────────────────────────────────────
+     FLOORPLAN REQUEST
+     Alt kept: "link not live yet" version
+  ───────────────────────────────────────────────────────────── */
+  'floorplan request': {
+    title: 'Floorplan Request',
+    template: `Dear [Customer Name],
+
+Thank you for your floorplan inquiry.
+
+The venue floorplan can be viewed on our official website and mobile app:
+[FLOORPLAN_LINK]
+
+For exhibitors requiring the technical floorplan, please access your customer centre portal where these documents are available.
+
+If you need assistance accessing your customer centre, please provide your company name and we will assist you.`,
+    alternatives: [
+      {
+        title: 'Floorplan Not Live Yet',
+        template: `Dear [Customer Name],
+
+Thank you for your floorplan inquiry.
+
+Please note that the floorplan link has not been published yet. We recommend keeping an eye on the official website, as it will be updated closer to the event date.
+
+For exhibitors requiring the technical floorplan, please access your customer centre portal where these documents are available.
+
+If you need assistance accessing your customer centre, please provide your company name and we will assist you.`
+      }
+    ]
+  },
+
+  /* ─────────────────────────────────────────────────────────────
+     EXHIBITORS LIST
+     Alt kept: "list not live yet" version — genuinely different
+  ───────────────────────────────────────────────────────────── */
+  'List': {
+    title: 'Exhibitors List',
+    template: `Dear [Customer Name],
+
+Thank you for your interest in our exhibitors list.
+
+You can view the complete exhibitors list at:
+[EXHIBITORS_LIST_LINK]
+
+The list includes company names, booth numbers, and categories.`,
+    alternatives: [
+      {
+        title: 'List Not Live Yet',
+        template: `Dear [Customer Name],
+
+Thank you for your interest in our exhibitors list.
+
+Please note that the exhibitors list is not yet available. We recommend keeping an eye on the official website and the event app, as all updates will be published there closer to the event date.`
+      }
+    ]
+  },
+
+  /* ─────────────────────────────────────────────────────────────
+     PRESS & MEDIA
+     All 3 originals are structurally identical → no alternatives
+  ───────────────────────────────────────────────────────────── */
+  'media section': {
+    title: 'Press & Media Inquiry',
+    template: `Dear [Customer Name],
+
+Thank you for your media inquiry regarding [EVENT NAME].
+
+1. Media partnerships — please contact: [MEDIA_PARTNERSHIP_EMAIL]
+
+2. Media/press badge (full event coverage) — please register through:
+[MEDIA_BADGE_LINK]
+
+3. On-stand media (camera for your booth only) — please complete this form:
+[ON_STAND_ACTIVITY_FORM]
+You may also check with the Registration Desk & Info Hub during show days.`
+  },
+
+  /* ─────────────────────────────────────────────────────────────
+     OPERATION CONTACT UPDATE
+     Alt removed — identical to main template
+  ───────────────────────────────────────────────────────────── */
+  'Additional Operation contact': {
+    title: 'Operation Contact Update',
+    template: `Dear [Customer Name],
+
+Thank you for your request to update/add an operation contact.
+
+Kindly provide us with the following information for the new operation contact:
+- Full Name
+- Email Address
+- Phone Number
+
+Once we receive this information, we will forward your request to the relevant team for processing. We will notify you once the update has been completed.`
+  },
+
+  /* ─────────────────────────────────────────────────────────────
+     SPEAKING REQUEST
+     Alt kept: "speaker form not live yet" version
+  ───────────────────────────────────────────────────────────── */
+  'speaker': {
+    title: 'Speaking Request',
+    template: `Dear [Customer Name],
+
+Thank you for your interest in speaking at [EVENT NAME].
+
+Please use the following link to access our Speaker Application Form:
+[SPEAKER_APPLICATION_LINK]
+
+Complete the form to connect with our content team and be considered for a speaking opportunity at the event.`,
+    alternatives: [
+      {
+        title: 'Speaker Form Not Live Yet',
+        template: `Dear [Customer Name],
+
+Thank you for your interest in speaking at [EVENT NAME].
+
+Please note that the speaker application form has not been published yet. We recommend keeping an eye on the official website, as it will be updated closer to the event date.
+
+We look forward to potentially welcoming you as a speaker!`
+      }
+    ]
+  },
+
+  /* ─────────────────────────────────────────────────────────────
+     CME HOURS
+     All 3 originals have genuinely different content → all kept
+  ───────────────────────────────────────────────────────────── */
+  'CME': {
+    title: 'CME Hours Request',
+    template: `Dear [Customer Name],
+
+Thank you for your inquiry about CME credits for [EVENT NAME].
+
+Please visit our CME information page for the latest details:
+[CME_INFO_LINK]
+
+Please note that CME credit information may be updated closer to the event date.`,
+    alternatives: [
+      {
+        title: 'CME Info Not Yet Confirmed',
+        template: `Dear [Customer Name],
+
+Thank you for your inquiry about CME credits for [EVENT NAME].
+
+Please note that CME credit information is typically updated closer to the event date. We recommend checking the official website periodically for the latest information.`
+      },
+      {
+        title: 'Event Has No CME / Has Startup Competition Instead',
+        template: `Dear [Customer Name],
+
+Thank you for your inquiry about CME credits for [EVENT NAME].
+
+Please note that this event does not offer CME hours. However, there is a startup competition — [COMPETITION_NAME] — which you may find of interest:
+[COMPETITION_LINK]`
+      }
+    ]
+  },
+
+  /* ─────────────────────────────────────────────────────────────
+     EXHIBITOR / VISITOR BADGE (QR)
+     Alt kept: version that includes the app link explicitly
+     Other 2 originals were identical to main → removed
+  ───────────────────────────────────────────────────────────── */
+  'QR': {
+    title: 'Exhibitor / Visitor Badge',
+    template: `Dear [Customer Name],
+
+Thank you for your badge inquiry.
+
+Your badge can be accessed in two ways:
+1. We can resend the confirmation email from the registration platform — please share your registered email address.
+2. The badge is also available inside the event app under the "My Badge" tab.
+
+If you need further assistance, please don't hesitate to reach out.`,
+    alternatives: [
+      {
+        title: 'With App Link',
+        template: `Dear [Customer Name],
+
+Thank you for your badge inquiry.
+
+Your badge can be accessed in two ways:
+1. We can resend the confirmation email from the registration platform — please share your registered email address.
+2. The badge is also available inside the event app under the "My Badge" tab: [EVENT_APP_LINK]
+
+If you need further assistance, please don't hesitate to reach out.`
+      }
+    ]
+  },
+
+  /* ─────────────────────────────────────────────────────────────
+     UPDATE EXHIBITOR LIST — no alternatives (all identical)
+  ───────────────────────────────────────────────────────────── */
+  'Update-list': {
+    title: 'Update Exhibitor List',
+    template: `Dear [Customer Name],
+
+Thank you for your request to update the exhibitor list.
+
+You can manage and correct your company information by amending your profile through the event app — changes are reflected instantly on the website.
+
+If the app is not yet live, kindly note that I have forwarded your request to the relevant team to update [SPECIFIC_INFORMATION]. Upon receiving any updates, I will promptly share them with you.`
+  },
+
+  /* ─────────────────────────────────────────────────────────────
+     CATERING ORDER — no alternatives (all identical)
+  ───────────────────────────────────────────────────────────── */
+  'Catering': {
+    title: 'Catering Order',
+    template: `Dear [Customer Name],
+
+Thank you for your catering inquiry.
+
+Please refer to the exhibitor manual in your customer centre portal for the official catering supplier's contact information and order forms.
+
+If you need assistance accessing your customer centre portal, please let us know and we will guide you through the process.`
+  },
+
+  /* ─────────────────────────────────────────────────────────────
+     VISA (VISITOR)
+     Alt kept: shorter version without a template link
+  ───────────────────────────────────────────────────────────── */
+  'Visa': {
+    title: 'Visa Invitation (Visitor)',
+    template: `Dear [Customer Name],
+
+Thank you for your visa invitation letter request.
+
+Please use the following link to submit the required details:
+[VISA_TEMPLATE_LINK]
+
+We will process your request as soon as possible.`,
+    alternatives: [
+      {
+        title: 'No Template Link Available',
+        template: `Dear [Customer Name],
+
+Thank you for your visa invitation letter request.
+
+Please provide the required personal details and we will process your request as soon as possible.`
+      }
+    ]
+  },
+
+  /* ─────────────────────────────────────────────────────────────
+     EXTERNAL CATERING — all 3 originals identical → no alternatives
+  ───────────────────────────────────────────────────────────── */
+  'EXCatering': {
+    title: 'External Catering Order',
+    template: `Dear [Customer Name],
+
+Thank you for your external catering inquiry.
+
+Please coordinate with our tech team at: [TECH_TEAM_EMAIL]
+
+Additionally, please complete the On-Stand Activity Form:
+[ON_STAND_ACTIVITY_FORM]
+
+The catering supplier information can also be found in the exhibitor manual.`
+  },
+
+  /* ─────────────────────────────────────────────────────────────
+     DISPLAY / COMPANY NAME CHANGE — no alternatives (all identical)
+  ───────────────────────────────────────────────────────────── */
+  'Display': {
+    title: 'Change Company / Display Name',
+    template: `Dear [Customer Name],
+
+Thank you for your request to change your company display name.
+
+You can update your company name by amending your profile through the event app — changes are reflected instantly.
+
+If the app is not yet live, I have forwarded your request to the relevant team to update the display name. Upon receiving any updates, I will promptly share them with you.`
+  },
+
+  /* ─────────────────────────────────────────────────────────────
+     SPONSORSHIP
+     Alt kept: version that includes a direct sponsorship team email
+  ───────────────────────────────────────────────────────────── */
+  'sponsorship': {
+    title: 'Sponsorship Request',
+    template: `Dear [Customer Name],
+
+Thank you for your interest in sponsoring [EVENT NAME].
+
+Please complete our Sponsorship Form:
+[SPONSORSHIP_FORM_LINK]
+
+I have attached the sponsorship brochure for your review. A member of our sponsorship team will be in touch with you shortly.
+
+We look forward to your participation in the event!`,
+    alternatives: [
+      {
+        title: 'With Sponsorship Team Email',
+        template: `Dear [Customer Name],
+
+Thank you for your interest in sponsoring [EVENT NAME].
+
+Please complete our Sponsorship Form:
+[SPONSORSHIP_FORM_LINK]
+
+For direct enquiries you may also contact our sponsorship team:
+[SPONSORSHIP_TEAM_EMAIL]
+
+I have attached the sponsorship brochure for your review.
+
+We look forward to your participation in the event!`
+      }
+    ]
+  },
+
+  /* ─────────────────────────────────────────────────────────────
+     AGENDA REQUEST
+     Alt kept: "agenda not live yet" version
+     Original alt 3 was identical to alt 2 → removed
+  ───────────────────────────────────────────────────────────── */
+  'Agenda': {
+    title: 'Agenda Request',
+    template: `Dear [Customer Name],
+
+Thank you for your interest in our event agenda.
+
+Please find the agenda at the following link:
+[AGENDA_LINK]
+
+Please note that the agenda is subject to change. We recommend checking closer to the event date for the most up-to-date information.`,
+    alternatives: [
+      {
+        title: 'Agenda Not Live Yet',
+        template: `Dear [Customer Name],
+
+Thank you for your interest in our event agenda.
+
+Please note that the agenda has not been published yet. We recommend keeping an eye on the official website, as all updates will be published there closer to the event date.`
+      }
+    ]
+  },
+
+  /* ─────────────────────────────────────────────────────────────
+     RIGGING — all 3 originals identical → no alternatives
+  ───────────────────────────────────────────────────────────── */
+  'Rigging': {
+    title: 'Rigging Request',
+    template: `Dear [Customer Name],
+
+Thank you for your rigging inquiry.
+
+Rigging regulations and order forms can be found in the exhibitor manual within your customer centre portal. Please navigate to the manuals section and search for "rigging" (Ctrl+F) to find the relevant information.
+
+For technical questions, please contact: [TECH_TEAM_EMAIL]
+
+If you need assistance accessing the portal, please let me know.
+
+Note: Please verify exhibitor participation by locating them in the customer centre before sharing sensitive information.`
+  },
+
+  /* ─────────────────────────────────────────────────────────────
+     STAND DESIGN
+     Alt kept: version that includes a PDF reference
+     Originals 1 and 3 were identical to each other → one removed
+  ───────────────────────────────────────────────────────────── */
+  'Stand-design': {
+    title: 'Stand Design Submission',
+    template: `Dear [Customer Name],
+
+Thank you for your stand design inquiry.
+
+Please submit your stand design using one of these methods:
+1. Email your design to the tech team: [TECH_TEAM_EMAIL] and ESM team: [ESM_TEAM_EMAIL]
+2. Submit through the contractor's portal (look for the stand design submission tab)
+
+Please ensure all dimensions and safety requirements are met per the exhibitor manual guidelines.`,
+    alternatives: [
+      {
+        title: 'With Stand Design PDF',
+        template: `Dear [Customer Name],
+
+Thank you for your stand design inquiry.
+
+Please submit your stand design by emailing the tech team: [TECH_TEAM_EMAIL]
+
+All stand construction requirements and regulations are detailed in this PDF:
+[STAND_DESIGN_PDF_LINK]
+
+You may also submit through the contractor's portal (look for the stand design submission tab).
+
+Please ensure all dimensions and safety requirements are met.`
+      }
+    ]
+  },
+
+  /* ─────────────────────────────────────────────────────────────
+     AUDIO-VISUAL — no alternatives (all identical)
+  ───────────────────────────────────────────────────────────── */
+  'audio-video': {
+    title: 'Audio-Visual Equipment',
+    template: `Dear [Customer Name],
+
+Thank you for your audio-visual equipment inquiry.
+
+The official AV supplier's contact information can be found in the A-Z manual within your customer centre portal. Please access your portal and navigate to the manuals section to find the supplier details.
+
+If you need assistance locating this information, please let me know.`
+  },
+
+  /* ─────────────────────────────────────────────────────────────
+     ELECTRICITY
+     Alt kept: version that includes the order forms PDF link
+  ───────────────────────────────────────────────────────────── */
+  'Electricity': {
+    title: 'Electricity Request',
+    template: `Dear [Customer Name],
+
+Thank you for your electricity request.
+
+Please refer to the exhibitor manual in your customer centre portal for the official electrical supplier's contact information and order forms.
+
+Note: Shell scheme and start-up exhibitors have electricity included. If you require additional power, please refer to the relevant PDF in the manual.`,
+    alternatives: [
+      {
+        title: 'With Order Forms PDF Link',
+        template: `Dear [Customer Name],
+
+Thank you for your electricity request.
+
+Please refer to the exhibitor manual in your customer centre portal for the official electrical supplier.
+
+Order forms are also available here:
+[ORDER_FORMS_PDF_LINK]
+
+Note: Shell scheme and start-up exhibitors have electricity included. If you require additional power, please refer to the relevant PDF in the manual.`
+      }
+    ]
+  },
+
+  /* ─────────────────────────────────────────────────────────────
+     GRAPHIC ORDER
+     Alt kept: version that includes the order forms PDF link
+  ───────────────────────────────────────────────────────────── */
+  'Graphic': {
+    title: 'Graphic Order (Posters)',
+    template: `Dear [Customer Name],
+
+Thank you for your graphic order inquiry.
+
+For space-only stands: Please check the Contact Manual or A-Z Manual in your customer centre portal for the graphic supplier.
+
+For shell scheme stands: Please refer to the Shell Scheme Manual for the graphic supplier information.`,
+    alternatives: [
+      {
+        title: 'With Order Forms PDF Link',
+        template: `Dear [Customer Name],
+
+Thank you for your graphic order inquiry.
+
+For space-only stands: Please check the Contact Manual or A-Z Manual in your customer centre portal for the graphic supplier.
+
+For shell scheme stands: Please refer to the Shell Scheme Manual for the graphic supplier information.
+
+Order forms are also available here:
+[ORDER_FORMS_PDF_LINK]`
+      }
+    ]
+  },
+
+  /* ─────────────────────────────────────────────────────────────
+     INVOICE REQUEST (VISITOR)
+     Alt kept: version with internal invoice team email note
+  ───────────────────────────────────────────────────────────── */
+  'Invoice': {
+    title: 'Invoice Request (Visitor)',
+    template: `Dear [Customer Name],
+
+Thank you for your invoice request.
+
+I have placed your case on hold and raised a ticket with our internal team. Once the invoice is available, we will provide it to you promptly.
+
+We appreciate your patience.`,
+    alternatives: [
+      {
+        title: 'With Internal Invoice Team Email',
+        template: `Dear [Customer Name],
+
+Thank you for your invoice request.
+
+I have placed your case on hold and raised a ticket with our internal team at [INTERNAL_INVOICE_EMAIL]. Once the invoice is available, we will provide it to you promptly.
+
+We appreciate your patience.`
+      }
+    ]
+  },
+
+  /* ─────────────────────────────────────────────────────────────
+     MEETING ROOM BOOKING — no alternatives (all identical)
+  ───────────────────────────────────────────────────────────── */
+  'Meeting room': {
+    title: 'Meeting Room Booking',
+    template: `Dear [Customer Name],
+
+Thank you for your meeting room booking inquiry.
+
+Please contact our sales team for meeting room availability and booking. Their contact information can be found in the sales brochure available in the Quick Menu section of our knowledge base.`
+  },
+
+  /* ─────────────────────────────────────────────────────────────
+     CONTRACTOR NOMINATION
+     Alt kept: version without the smartsheet form (some events use email only)
+     Originals 2 and 3 were identical → merged into one
+  ───────────────────────────────────────────────────────────── */
+  'nominate contractor': {
+    title: 'Contractor Nomination',
+    template: `Dear [Customer Name],
+
+Thank you for your contractor nomination request.
+
+Please use one of the following methods to nominate your contractor:
+1. Submit through your exhibitor manual / customer centre portal
+2. Complete this form: [CONTRACTOR_NOMINATION_FORM]
+3. Send contractor details directly to: [TECH_TEAM_EMAIL]
+
+Please ensure all contractor information is complete and accurate.`,
+    alternatives: [
+      {
+        title: 'Email Only — No Smartsheet Form',
+        template: `Dear [Customer Name],
+
+Thank you for your contractor nomination request.
+
+Please send your contractor's full details to our tech team:
+[TECH_TEAM_EMAIL]
+
+You may also submit through your exhibitor manual / customer centre portal.
+
+Please ensure all contractor information is complete and accurate.`
+      }
+    ]
+  },
+
+  /* ─────────────────────────────────────────────────────────────
+     TIMETABLE — no alternatives (all identical)
+  ───────────────────────────────────────────────────────────── */
+  'Time table': {
+    title: 'Exhibitor-Contractor Timetable',
+    template: `Dear [Customer Name],
+
+Thank you for your timetable inquiry.
+
+Build-up and breakdown times for exhibitors and contractors can be found in the exhibitor manual within your customer centre portal. Please navigate to the "Key Timetable" or "Show Schedule" section.
+
+Please note that exhibitor and visitor show times differ.`
+  },
+
+  /* ─────────────────────────────────────────────────────────────
+     EXTRA / ADDITIONAL BADGES — no alternatives (all identical)
+  ───────────────────────────────────────────────────────────── */
+  'Extra badges': {
+    title: 'Additional Badges Request',
+    template: `Dear [Customer Name],
+
+Thank you for your additional badges request.
+
+To extend your badge allotment, we first need approval from your account manager. Once confirmed, please provide:
+- Number of additional badges needed
+- Full name and email address for each badge
+
+We will follow up once we have the account manager's confirmation.`
+  },
+
+  /* ─────────────────────────────────────────────────────────────
+     ADDITIONAL CONTACT — no alternatives (all identical)
+  ───────────────────────────────────────────────────────────── */
+  'Extra Contact': {
+    title: 'Additional Contact Request',
+    template: `Dear [Customer Name],
+
+Thank you for your request to add an additional contact.
+
+Please provide the following information:
+- Full Name
+- Email Address
+- Phone Number
+
+Once received, we will forward your request to the relevant team and notify you once the additional contact has been added.`
+  },
+
+  /* ─────────────────────────────────────────────────────────────
+     EXHIBITOR CANCELLATION — no alternatives (all identical)
+  ───────────────────────────────────────────────────────────── */
+  'Exhibitor-Cancellation': {
+    title: 'Exhibitor Cancellation',
+    template: `Dear [Customer Name],
+
+Thank you for your cancellation inquiry.
+
+To cancel your exhibition participation, please contact your account manager directly, as they are the only ones authorised to process cancellations.
+
+If you need your account manager's contact information, please provide your company name and we will share their email address with you.`
+  },
+
+  /* ─────────────────────────────────────────────────────────────
+     EXHIBITOR INVOICE — no alternatives (all identical)
+  ───────────────────────────────────────────────────────────── */
+  'Exhibitor-Invoice': {
+    title: 'Exhibitor Invoice Request',
+    template: `Dear [Customer Name],
+
+Thank you for your invoice request.
+
+Invoice requests must be directed to your account manager, as they are the only ones who can provide the relevant invoices.
+
+If you need your account manager's contact information, please provide your company name and we will share their email address with you.`
+  },
+
+  /* ─────────────────────────────────────────────────────────────
+     ON-STAND ACTIVITY — all 3 originals identical → no alternatives
+  ───────────────────────────────────────────────────────────── */
+  'On-stand': {
+    title: 'On-Stand Activity Form',
+    template: `Dear [Customer Name],
+
+Thank you for your on-stand activity inquiry.
+
+Please complete the On-Stand Activity Form to request permission for any activities or items beyond standard exhibits (cameras, external catering, entertainment, etc.):
+[ON_STAND_ACTIVITY_FORM]`
+  },
+
+  /* ─────────────────────────────────────────────────────────────
+     REGISTRATION TECH ISSUE — all 3 originals identical → no alternatives
+  ───────────────────────────────────────────────────────────── */
+  'Registration Tech Issue': {
+    title: 'Registration Technical Issue',
+    template: `Dear [Customer Name],
+
+Thank you for reporting a registration technical issue.
+
+I have forwarded your case to our Registration Support Team ([REGISTRATION_SUPPORT_EMAIL]) for investigation. Please provide:
+
+- Registered email address
+- Registration key (if available)
+- Description of the issue
+
+I will place your case on hold and notify you once the issue has been resolved.`
+  },
+
+  /* ─────────────────────────────────────────────────────────────
+     VISA FOR EXHIBITOR — all 3 originals identical → no alternatives
+  ───────────────────────────────────────────────────────────── */
+  'Visa-Exhibitor': {
+    title: 'Visa for Exhibitor',
+    template: `Dear [Customer Name],
+
+Thank you for your participation letter request.
+
+Please note that we provide participation letters (not invitation letters) for exhibitors only. Please send the following details:
+
+- Name:
+- Passport Number:
+- Expiry Date:
+- Date of Arrival:
+- Date of Departure:
+
+Once we receive this information, we will prepare your participation letter as a password-protected PDF. The password will be sent in a separate email for security purposes.`
+  },
+
+  /* ─────────────────────────────────────────────────────────────
+     JOB REQUEST — all 3 originals identical → no alternatives
+  ───────────────────────────────────────────────────────────── */
+  'Job-request': {
+    title: 'Job Request',
+    template: `Dear [Candidate Name],
+
+Thank you for your interest in joining our team.
+
+Please visit our careers page to view current vacancies and submit your application:
+[CAREERS_PAGE_LINK]
+
+We also recommend signing up on our recruiting platform to receive notifications about future opportunities that match your profile.`
+  },
+
+  /* ─────────────────────────────────────────────────────────────
+     PARTNERSHIP — all 3 originals identical → no alternatives
+  ───────────────────────────────────────────────────────────── */
+  'Partnership': {
+    title: 'Partnership Request',
+    template: `Dear [Company Name],
+
+Thank you for your partnership interest.
+
+Please provide the following information so we can evaluate your proposal:
+
+1. Nature of Service: Brief description of your services
+2. Official Documents: Commercial Registration, VAT Certificate, National Address
+3. Contact Information: Official Email, Contact Person's Full Name, Mobile Number, Job Title
+4. Online Presence: LinkedIn Page or Website (if available)
+
+Once we receive this information, we will forward it to the relevant team for review. If your proposal is suitable, you will be contacted by our team.`
+  },
+
+  /* ─────────────────────────────────────────────────────────────
+     EXHIBITOR MANUAL — all 3 originals identical → no alternatives
+  ───────────────────────────────────────────────────────────── */
+  'Exhbitor Manual': {
+    title: 'Exhibitor Manual / Portal Access',
+    template: `Dear [Customer Name],
+
+Thank you for your inquiry about the exhibitor manual / customer centre portal.
+
+To access your portal:
+1. Go to the portal link: [CUSTOMER_CENTRE_PORTAL_LINK]
+2. Click "Forgot Password" and enter your username
+3. A password reset link will be sent to your registered email
+4. Create a new password and sign in
+
+The portal contains exhibitor manuals, service order forms, deadlines, and marketing materials.
+
+If you need us to resend your portal credentials, please provide your company name and registered email.`
+  },
+
+  /* ─────────────────────────────────────────────────────────────
+     ON-SITE ORDER
+     Alt kept: version with order forms PDF link
+  ───────────────────────────────────────────────────────────── */
+  'On-site order': {
+    title: 'On-Site Order',
+    template: `Dear [Customer Name],
+
+Thank you for your on-site order inquiry.
+
+Please refer to the A-Z manual in your customer centre portal for information about ordering services such as forklifts, additional furniture, or other on-site logistics.
+
+If you need assistance locating this information, please let me know.`,
+    alternatives: [
+      {
+        title: 'With Order Forms PDF Link',
+        template: `Dear [Customer Name],
+
+Thank you for your on-site order inquiry.
+
+Please refer to the A-Z manual in your customer centre portal for information about ordering services such as forklifts, additional furniture, or other on-site logistics.
+
+Order forms are also available here:
+[ORDER_FORMS_PDF_LINK]
+
+If you need assistance locating this information, please let me know.`
+      }
+    ]
+  },
+
+  /* ─────────────────────────────────────────────────────────────
+     PHOTOGRAPHER
+     All 3 originals have genuinely different content → all kept
+  ───────────────────────────────────────────────────────────── */
+  'Photographer': {
+    title: 'Photographer Request',
+    template: `Dear [Customer Name],
+
+Thank you for your photographer inquiry.
+
+Please check the event manual for the official photographer supplier. Additionally, please complete the On-Stand Activity Form:
+[ON_STAND_ACTIVITY_FORM]
+
+For visitors wishing to film/photograph, please review the press and filming protocols:
+[PRESS_PROTOCOLS_LINK]`,
+    alternatives: [
+      {
+        title: 'With Press Registration Link',
+        template: `Dear [Customer Name],
+
+Thank you for your photographer inquiry.
+
+For exhibitor photographers, please complete the On-Stand Activity Form:
+[ON_STAND_ACTIVITY_FORM]
+
+For visitor photographers / press, please register through:
+[VISITOR_PHOTOGRAPHER_LINK]`
+      },
+      {
+        title: 'Exhibitor Photographer via "Exhibiting Media" Badge',
+        template: `Dear [Customer Name],
+
+Thank you for your photographer inquiry.
+
+For exhibitor photographers, please complete the On-Stand Activity Form:
+[ON_STAND_ACTIVITY_FORM]
+
+Additionally, your photographer can be registered through the customer centre by selecting "Exhibiting Media" as the registration type instead of "Exhibitor". Please refer to the Exhibitor Badge Registration Guide:
+[EXHIBITOR_BADGE_GUIDE_LINK]`
+      }
+    ]
+  },
+
+  /* ─────────────────────────────────────────────────────────────
+     COMPANY PROFILE / LOGO
+     Alt kept: version with exhibitor setup guide link
+  ───────────────────────────────────────────────────────────── */
+  'Company-profile': {
+    title: 'Update Company Profile / Logo',
+    template: `Dear [Customer Name],
+
+Thank you for your request to update your company profile or logo.
+
+All company profile updates (logo, description, products) can be made through the event app. Once logged in, navigate to your company profile section to make updates.
+
+Full guidance is available in the "Help Desk" section of the app.
+
+If you need assistance, please let us know.`,
+    alternatives: [
+      {
+        title: 'With Exhibitor Setup Guide Link',
+        template: `Dear [Customer Name],
+
+Thank you for your request to update your company profile or logo.
+
+All company profile updates (logo, description, products) can be made through the event app. Once logged in, navigate to your company profile section to make updates.
+
+Full guidance is available in the "Help Desk" section of the app, or in the Exhibitor Setup Guide:
+[EXHIBITOR_SETUP_GUIDE_LINK]
+
+If you need assistance, please let us know.`
+      }
+    ]
+  },
+
+  /* ─────────────────────────────────────────────────────────────
+     LEAD CAPTURE / RETRIEVAL
+     Alt kept: version with lead retrieval guide PDF link
+  ───────────────────────────────────────────────────────────── */
+  'Lead-Capture': {
+    title: 'Lead Capture & Retrieval',
+    template: `Dear [Customer Name],
+
+Thank you for your inquiry about lead capture.
+
+The event app includes lead capture functionality that allows you to scan attendee badges and rate leads from 1–5. You can also create custom qualifying questions.
+
+Full guidance is available in the app's help section or in the exhibitor manual.`,
+    alternatives: [
+      {
+        title: 'With Lead Retrieval Guide PDF',
+        template: `Dear [Customer Name],
+
+Thank you for your inquiry about lead capture.
+
+The event app includes lead capture functionality that allows you to scan attendee badges and rate leads from 1–5. You can also create custom qualifying questions.
+
+For the complete Lead Retrieval Guide, please refer to:
+[LEAD_RETRIEVAL_GUIDE_LINK]`
+      }
+    ]
+  },
+
+  /* ─────────────────────────────────────────────────────────────
+     STAND SHARING — no alternatives (all identical)
+  ───────────────────────────────────────────────────────────── */
+  'Stand sharing': {
+    title: 'Stand Sharing Request',
+    template: `Dear [Customer Name],
+
+Thank you for your stand sharing inquiry.
+
+Stand sharing arrangements must be coordinated through your account manager, as they are the only ones authorised to approve such agreements.
+
+If you need your account manager's contact information, please provide your company name and we will share their email address with you.`
+  }
+
+};
+
+        function openEmailTemplates() {
+            document.getElementById('emailModal').style.display = 'block';
+            populateEmailTemplates();
+        }
+
+        function closeEmailTemplates() {
+            document.getElementById('emailModal').style.display = 'none';
+        }
+
+        function populateEmailTemplates() {
+            const container = document.getElementById('emailCaseList');
+            container.innerHTML = '';
+
+            // Show ALL templates - FIXED: no longer looking for h1 IDs
+            for (const [id, template] of Object.entries(emailTemplates)) {
+                const caseItem = document.createElement('div');
+                caseItem.className = 'email-case-item';
+                
+                let altHtml = '';
+                if (template.alternatives && template.alternatives.length) {
+                    altHtml = `
+                        <div class="alternative-section" style="margin-top:15px;border-top:1px dashed #ccc;padding-top:12px;">
+                            <div class="alternative-title" onclick="toggleAlternatives(this)"
+                                 style="cursor:pointer;color:#2ecc71;font-size:.85rem;margin-bottom:8px;display:flex;align-items:center;gap:5px;">
+                                <span>🔄</span><span>Alternative Versions (${template.alternatives.length}) ▼</span>
+                            </div>
+                            <div class="alternatives-container" style="display:none;">
+                    `;
+                    template.alternatives.forEach((alt, idx) => {
+                        altHtml += `
+                            <div style="margin-bottom:15px;padding:10px;background:#e8f8f5;border-radius:8px;">
+                                <div style="font-size:.8rem;color:#2ecc71;margin-bottom:8px;font-weight:bold;">${escapeHtml(alt.title)}</div>
+                                <div class="email-template-text">${escapeHtml(alt.template).replace(/\n/g, '<br>')}</div>
+                                <button class="copy-email-btn" onclick="copyEmailTemplate(this,'${id}',${idx})">🔄 Copy Alternative ${idx + 1}</button>
+                            </div>
+                        `;
+                    });
+                    altHtml += `</div></div>`;
+                }
+
+                caseItem.innerHTML = `
+                    <div class="email-case-title" onclick="toggleTemplate(this)">
+                        <span>📧 ${escapeHtml(template.title)}</span><span>▼</span>
+                    </div>
+                    <div class="email-template-content">
+                        <div class="email-template-text">${escapeHtml(template.template).replace(/\n/g, '<br>')}</div>
+                        <button class="copy-email-btn" onclick="copyEmailTemplate(this,'${id}',null)">📋 Copy Template</button>
+                        ${altHtml}
+                    </div>
+                `;
+                container.appendChild(caseItem);
+            }
+        }
+
+        function escapeHtml(str) {
+            if (!str) return '';
+            return str.replace(/[&<>]/g, function(m) {
+                if (m === '&') return '&amp;';
+                if (m === '<') return '&lt;';
+                if (m === '>') return '&gt;';
+                return m;
+            });
+        }
+
+        function toggleAlternatives(element) {
+            const container = element.nextElementSibling;
+            const isHidden = container.style.display === 'none' || !container.style.display;
+            container.style.display = isHidden ? 'block' : 'none';
+            const arrowSpan = element.querySelector('span:last-child');
+            if (arrowSpan) arrowSpan.innerHTML = isHidden ? '▲' : '▼';
+        }
+
+        function toggleTemplate(element) {
+            const content = element.nextElementSibling;
+            const arrow = element.querySelector('span:last-child');
+            const isHidden = content.style.display === 'none' || !content.style.display;
+            content.style.display = isHidden ? 'block' : 'none';
+            arrow.innerHTML = isHidden ? '▲' : '▼';
+        }
+
+        function copyEmailTemplate(button, id, alternativeIndex = null) {
+            const template = emailTemplates[id];
+            if (!template) return;
+            let text = template.template;
+            if (alternativeIndex !== null && template.alternatives?.[alternativeIndex]) {
+                text = template.alternatives[alternativeIndex].template;
+            }
+            navigator.clipboard.writeText(text).then(() => {
+                const orig = button.innerHTML;
+                button.innerHTML = '✅ Copied!';
+                showToast('Email template copied to clipboard!');
+                setTimeout(() => { button.innerHTML = orig; }, 2000);
+            }).catch(() => showToast('Failed to copy.', 'error'));
+        }
+
+        function showToast(message, type = 'success') {
+            const toast = document.createElement('div');
+            toast.className = 'toast-notification';
+            toast.style.backgroundColor = type === 'success' ? '#28a745' : '#dc3545';
+            toast.textContent = message;
+            document.body.appendChild(toast);
+            setTimeout(() => toast.remove(), 3000);
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('emailModal');
+            if (event.target === modal) closeEmailTemplates();
+        };
+    </script>
+
+<!-- Meet the Team -->
+  <section class="team-section">
+    <a class="meet" href="#outtro">  Meet The Team</a>
+    <div class="marquee">
+      <div class="marquee-track">
+          <span style="display: inline-block; height: 190px; font-family:Arial, Helvetica, sans-serif;"> Leena Mostafa <img style="max-height: 100%;" src="michael-scott-the-manager.gif" width="300"></span>
+          <span style="display: inline-block; height: 190px; font-family:Arial, Helvetica, sans-serif;">  Salma Abdel Nassar <img style="max-height: 100%;" src="Salma-abd.gif" width="220"> </span>
+          <span style="display: inline-block; height: 190px; font-family:Arial, Helvetica, sans-serif;">  Salma Hany <img style="max-height: 100%;" src="salma-h.gif" width="300"> </span>
+          <span style="display: inline-block; height: 190px; font-family:Arial, Helvetica, sans-serif;">  Nesreen Besheer <img style="max-height: 100%;" src="Nessren.gif" width="250"></span>
+          <span style="display: inline-block; height: 190px; font-family:Arial, Helvetica, sans-serif;">Abeer Tarek <img style="max-height: 100%;" src="" width="250" ></span>
+           <span style="display: inline-block; height: 190px; font-family:Arial, Helvetica, sans-serif;">  Nadine Nasser <img style="max-height: 100%;" src="Nadine.gif" width="250"></span>
+          <span style="display: inline-block; height: 190px; font-family:Arial, Helvetica, sans-serif; position: relative;top: -40px;     /* move upward outside container */transform: scale(1.3);  /* optional: make it bigger */z-index: 10;    /* bring it above others */ color: white;">Mohamed Eid <img style="max-height: 100%;" src="image (15).png" width="220"></span> 
+      <span style="display: inline-block; height: 190px; font-family:Arial, Helvetica, sans-serif;">Mishkat Mohammed <img style="max-height: 100%;" src="tenor.gif" width="220"></span>
+      <span style="display: inline-block; height: 190px; font-family:Arial, Helvetica, sans-serif;">Hossam Suliman <img style="max-height: 100%;" src="me.gif" width="220"></span>        
+      <span style="display: inline-block; height: 190px; font-family:Arial, Helvetica, sans-serif;">  Menna Allah Mohamed </span>
+      <span style="display: inline-block; height: 190px; font-family:Arial, Helvetica, sans-serif;"> Eslam Mohamed <img style="max-height: 100%;" src="Pause GIF_.gif" width="220"></span>
+      <span style="display: inline-block; height: 190px; font-family:Arial, Helvetica, sans-serif;"> Toka Abdelhaleem <img style="max-height: 100%;" src="Image (2).jpg" width="220"></span>
+      <span style="display: inline-block; height: 190px; font-family:Arial, Helvetica, sans-serif;">Neaama Hamdy <img style="max-height: 100%;"  src="image (13).png" width="220"> </span> 
+      <span style="display: inline-block; height: 190px; font-family:Arial, Helvetica, sans-serif;">Ahmed Mahmoud <img style="max-height: 100%;" src="image (18).png" width="220"> </span> 
+      <span style="display: inline-block; height: 190px; font-family:Arial, Helvetica, sans-serif;">  Dina Alaa  <img style="max-height: 100%;" src="donald-duck.gif" width="240"></span>
+      <span style="display: inline-block; height: 190px; font-family:Arial, Helvetica, sans-serif;">  Menna El Ghanam <img style="max-height: 100%;" src="GIF_.gif" width="250"></span> 
+            <span style="display: inline-block; height: 190px; font-family:Arial, Helvetica, sans-serif;">  Salma Hamdy </span>
+            
+
+    </div>
+    </div>
+  </section>
+
+  
+<div id="outtro" class="dir4">
+<img class="svg2" src="idyUJqPKjE_logos.svg"width="350" height="150">
+    
+   <p class="conclusion">  Content Contributions:<br><br>
+        🖺💬Leena Mostafa / 💡Ahmed Mahmoud / 💡Mishkat Mohamed
+       <br> 🖹💡Salma Abd El Nasser /
+        🖹💬Salma Hany / 🖹💬Abeer Tarek  <br>
+        🖹💬Eslam Mohamed / 💡Mohamed Othman /
+        🖹💬Dina Alaa</p>
+        
+
+    <p class="conclusion-me" title="Hello! &#128075; Scan this whatsapp QR code to contact me">
+
+Knowledge base built with (HTML - CSS - Js) by <br> Hossam soliman / hossam.suliman@informa.com 
+    </p>
+<img class="me" src="781e6618-5a7e-4068-9cdc-ac069a15831a.jpg" width="100" height="100">
+
+</div></div>
+
+</body>
+</html>
